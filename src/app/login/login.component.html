@@ -1,0 +1,22 @@
+<div class="container">
+  <form>
+  
+  <h1 align="center">Menu</h1>
+  
+  <div class="form-group">
+      <label><b>Nombre de cuenta</b></label>
+      <input type="text" class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="nombre" >
+  </div>
+  
+  <div class="form-group">
+      <label><b>Contraseña</b></label>
+      <input type="password" class="form-control" placeholder="Enter Password" name="pass" [(ngModel)]="password" >
+  </div>
+  
+  <div align="center">
+  <button align="center" class="btn btn-primary" type="submit" (click)="Loguearse()" >Login</button>
+  <input type="checkbox" checked="checked"> Remember me
+  </div>
+  
+  </form>
+  </div>

@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Parcial:
+
+- Son 9 puntos
+- 10 y 15 mins cada punto
+
+- El examen se procede en intervalos de bloques de 2 puntos.
+
+- Esta permitido usar github, internet.
