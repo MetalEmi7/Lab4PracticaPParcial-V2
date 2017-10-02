@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
 
   Loguearse()
   {
+    //hardcode
     if (this.nombre == "admin" && this.password=="123456")
     {
         this.rout.navigate(["/menu"]);
-        
     }
   }
 
