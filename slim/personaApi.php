@@ -79,7 +79,7 @@ class personaApi
 			$statement->bindValue(":2", $params['mail'], PDO::PARAM_STR);
 			$statement->bindValue(":3", $params['password'], PDO::PARAM_STR);
 			$statement->bindValue(":4", $params['sexo'], PDO::PARAM_STR);
-			$statement->bindValue(":5", $params['id'], PDO::PARAM_STR);
+			$statement->bindValue(":5", $params['id'], PDO::PARAM_INT);
 			$statement->execute();
 
 		}catch(Exception $ex){
@@ -91,14 +91,14 @@ class personaApi
 
 	
 
-	public static function delete($table,$id){
+	public static function delete($table,$params){
 
         try{
 			$db = personaApi::getPDO();
 
 			$sql = "delete from ".$table . " where id = :id";
 			$statement = $db->sendQuery($sql);
-			$statement->bindValue(":id", $id, PDO::PARAM_INT);	
+			$statement->bindValue(":id", $params['id'], PDO::PARAM_INT);	
 			$statement->execute();
 
 		}catch(Exception $ex){

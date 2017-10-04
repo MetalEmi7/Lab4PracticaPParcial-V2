@@ -27,7 +27,7 @@ $app->get('/{table}/login', function (Request $request, Response $response) {
     return personaApi::getUser($table, $params);
 });
 
-$app->get('/{table}', function (Request $request, Response $response) {
+$app->get('/{table}', function (Request $request, Response $response) {                             // -
     $table = $request->getAttribute('table');
     return personaApi::getAll($table);
 });
@@ -38,7 +38,7 @@ $app->post('/{table}/insert', function (Request $request, Response $response) {
     return personaApi::insert($table, $params);
 });
 
-$app->post('/{table}/update', function (Request $request, Response $response) {
+$app->post('/{table}/update', function (Request $request, Response $response) {         // -
     $table = $request->getAttribute('table');
     $params = $request->getParams();
     return personaApi::update($table, $params);

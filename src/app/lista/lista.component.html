@@ -17,6 +17,7 @@
       <tr *ngFor="let persona of ListaDePersonas" >
         <th>{{persona.nombre}}</th>
         <th>{{persona.mail}}</th>
+        
         <th *ngIf="persona.sexo">masculino</th>
         <th *ngIf="!persona.sexo">femenino</th>
       </tr>

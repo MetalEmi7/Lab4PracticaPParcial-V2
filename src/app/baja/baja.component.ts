@@ -9,6 +9,7 @@ import { PersonaService } from "../servicios/persona.service";
 export class BajaComponent implements OnInit {
 
   form={
+    id:"",
     nombre:"",
     password:"",
     mail:"",
