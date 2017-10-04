@@ -27,6 +27,11 @@ $app->get('/{table}/login', function (Request $request, Response $response) {
     return personaApi::getUser($table, $params);
 });
 
+$app->get('/{table}', function (Request $request, Response $response) {
+    $table = $request->getAttribute('table');
+    return personaApi::getAll($table);
+});
+
 $app->post('/{table}/insert', function (Request $request, Response $response) {
     $table = $request->getAttribute('table');
     $params = $request->getParams();

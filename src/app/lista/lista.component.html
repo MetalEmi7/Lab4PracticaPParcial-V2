@@ -1,3 +1,28 @@
 <p>
   lista works!
 </p>
+
+<div class="container">  
+<table class="table table-striped" border="2">
+
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Mail</th>
+          <th>Genero</th>      
+        </tr>
+      </thead>    
+        
+      
+      <tr *ngFor="let persona of ListaDePersonas" >
+        <th>{{persona.nombre}}</th>
+        <th>{{persona.mail}}</th>
+        <th *ngIf="persona.sexo">masculino</th>
+        <th *ngIf="!persona.sexo">femenino</th>
+      </tr>
+
+</table>
+
+</div>    
+
+

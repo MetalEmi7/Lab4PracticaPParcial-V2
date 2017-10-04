@@ -43,10 +43,21 @@ export class PersonaService {
     .catch()
   }
 
-
-
-
   
+    public select()  {
+      let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas";
+  
+      return this.http
+      .get(url)
+      .toPromise()
+      .then()
+      .catch()
+    }
+
+
+
+
+
   
   private extraerDatos(resp:Response) {
     return resp.json() || {}
