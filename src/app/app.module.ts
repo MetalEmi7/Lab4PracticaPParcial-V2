@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"; //Necesario para doble bindeo
 import { RouterModule, Routes, RouterLinkActive } from "@angular/router";
+import { HttpModule } from "@angular/http";     //HTTP
 
 
 import { AppComponent } from './app.component';
@@ -12,17 +13,20 @@ import { LoginComponent } from './login/login.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BajaComponent } from './baja/baja.component';
 import { ErrorComponent } from './error/error.component';
-
+import { ListaComponent } from './lista/lista.component';           
 
 import { PersonaService } from "./servicios/persona.service";
-import { HttpService } from "./servicios/http.service";
+import { HttpService } from "./servicios/http.service"; //http
+
+
 
 const miRoute=[
   {path: "login",component: LoginComponent},  
   {path: "menu",component: MainMenuComponent,
     children:[
       {path: "alta", component: AltaComponent},
-      {path: "baja", component: BajaComponent}      
+      {path: "baja", component: BajaComponent},
+      {path: "listado", component: ListaComponent}
     ]},
   {path: "",component: LoginComponent},
   {path: "**",component: ErrorComponent}
@@ -35,16 +39,18 @@ const miRoute=[
     LoginComponent,
     MainMenuComponent,
     BajaComponent,
-    ErrorComponent
+    ErrorComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(miRoute)
+    RouterModule.forRoot(miRoute),        
+    HttpModule                            //HTTP
   ],
   providers: [
     PersonaService,
-    HttpService
+    HttpService                           //HTTP
   ],
   bootstrap: [AppComponent]
 })

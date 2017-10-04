@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonaService } from "../servicios/persona.service";
 
 @Component({
   selector: 'app-baja',
@@ -7,7 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BajaComponent implements OnInit {
 
-  constructor() { }
+  form={
+    nombre:"",
+    password:"",
+    mail:"",
+    sexo:"",
+  }
+
+  constructor(private datos:PersonaService) { }
+
+  baja()
+  {
+    console.log("Metodo baja() - ");
+    this.datos.delete(this.form)
+    .then(data=>{
+      console.log(data);
+      alert("Persona Eliminada");
+    })
+    .catch(error=> console.log(error))
+  }
 
   ngOnInit() {
   }

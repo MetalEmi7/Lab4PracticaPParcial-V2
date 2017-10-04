@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from "../servicios/http.service"; //Hasta aca
+import { PersonaService } from "../servicios/persona.service";
 
 @Component({
   selector: 'app-alta',
@@ -8,18 +8,23 @@ import { HttpService } from "../servicios/http.service"; //Hasta aca
 })
 export class AltaComponent{
 
-  nombre:string;
-  password:string;
-  mail:string;
-  sexo:string;
-
+  form={
+    nombre:"",
+    password:"",
+    mail:"@X.com",
+    sexo:"",
+  }
   
-  constructor(private datos:HttpService ) { } //Hasta aca, funciona bien la pagina
+  constructor(private datos:PersonaService ) { }
 
   alta()
   {
     console.log("Metodo alta() - ");
-
+    this.datos.insert(this.form)
+    .then(data=>{
+      console.log(data);
+    })
+    .catch(error=> console.log(error))
   }
 
   

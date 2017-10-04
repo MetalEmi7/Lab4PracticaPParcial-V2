@@ -21,19 +21,40 @@ $app->add(function ($req, $res, $next) {
 
 //Funcionando
 
-$app->group('/usuario', function(){
+$app->get('/{table}/login', function (Request $request, Response $response) {
+    $table = $request->getAttribute('table');
+    $params = $request->getParams();
+    return personaApi::getUser($table, $params);
+});
 
-    $this->get('/login', \personaApi::class . ':')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-    
-     $this->post('/alta', \personaApi::class . ':')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-   
-     $this->post('/baja', \personaApi::class . ':')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-   
-     $this->post('/update', \personaApi::class . ':')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-   
-     $this->delete('/delete', \personaApi::class . ':');
+$app->post('/{table}/insert', function (Request $request, Response $response) {
+    $table = $request->getAttribute('table');
+    $params = $request->getParams();
+    return personaApi::insert($table, $params);
+});
+
+$app->post('/{table}/update', function (Request $request, Response $response) {
+    $table = $request->getAttribute('table');
+    $params = $request->getParams();
+    return personaApi::update($table, $params);
+});
+
+$app->post('/{table}/delete', function (Request $request, Response $response) {
+    $table = $request->getAttribute('table');
+    $params = $request->getParams();
+    return personaApi::delete($table, $params);
+});
+
+/*
+$app->group('/personas', function(){
+    $this->get('/login', \personaApi::class . ':getUser()')->add(\MWparaCORS::class . ':HabilitarCORSTodos');    
+    $this->post('/alta', \personaApi::class . ':insert()')->add(\MWparaCORS::class . ':HabilitarCORSTodos');   
+    $this->post('/baja', \personaApi::class . ':')->add(\MWparaCORS::class . ':HabilitarCORSTodos');   
+    $this->post('/update', \personaApi::class . ':')->add(\MWparaCORS::class . ':HabilitarCORSTodos');   
+    $this->delete('/delete', \personaApi::class . ':');
 
 })->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORS8080');
+*/
 
 $app->run();
 
