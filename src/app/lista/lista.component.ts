@@ -1,26 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from "../servicios/persona.service";
 
+import { persona } from "../clases/persona";
+
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  ListaDePersonas:Array<any>
+  ListaDePersonas:Array<any>;
 
-  constructor(private datos:PersonaService) {
+  constructor(private datos:PersonaService)
+  {
     this.ListaDePersonas = new Array<any>();
-   }
+    this.listar();
+        //Esto lo hice asi ahora para probar que los datos se muestran
+  }
   
 
     listar()
     {
       console.log("Metodo listar() - ");
+
       this.datos.select()
-      .then(data=>{
+      .then(data =>{
+        console.log(this.ListaDePersonas);
         console.log(data);
-        alert("Lista completa");
+        
       })
       .catch(error=> console.log(error))
     }

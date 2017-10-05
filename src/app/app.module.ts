@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BajaComponent } from './baja/baja.component';
 import { ErrorComponent } from './error/error.component';
-import { ListaComponent } from './lista/lista.component';           
+import { ListaComponent } from './lista/lista.component';   
 
 import { PersonaService } from "./servicios/persona.service";
 import { HttpService } from "./servicios/http.service"; //http

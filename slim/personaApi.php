@@ -36,8 +36,8 @@ class personaApi
 			$sql = "select * from ".$table;
 			$statement = $db->sendQuery($sql);
 			$statement->execute();
-            $rv = $statement->fetchAll(PDO::FETCH_ASSOC);
-			return json_encode($rv);
+            
+			return json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
 		}catch(Exception $ex){
 			die("Error: " . $ex->getMessage());
 		}
