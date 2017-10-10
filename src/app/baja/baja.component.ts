@@ -23,8 +23,9 @@ export class BajaComponent implements OnInit {
     console.log("Metodo baja() - ");
     this.datos.delete(this.form)
     .then(data=>{
+      
       console.log(data);
-      alert("Persona Eliminada");
+      
     })
     .catch(error=> console.log(error))
   }

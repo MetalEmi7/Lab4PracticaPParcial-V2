@@ -20,14 +20,15 @@ export class ListaComponent implements OnInit {
   
 
     listar()
-    {
-      console.log("Metodo listar() - ");
+    { 
 
       this.datos.select()
-      .then(data =>{
-        console.log(this.ListaDePersonas);
-        console.log(data);
-        
+      .then(data=>{        
+        //var obj:string = JSON.parse(data);   
+
+        this.ListaDePersonas = JSON.parse(data);
+
+        //console.log(this.ListaDePersonas);
       })
       .catch(error=> console.log(error))
     }

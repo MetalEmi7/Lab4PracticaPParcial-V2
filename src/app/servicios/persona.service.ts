@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Response, Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-
+import { Response, Http, ResponseOptions} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -11,47 +11,46 @@ import 'rxjs/add/operator/catch';
 export class PersonaService {
   constructor(public http:Http) { }
 
-  public insert(datos)  {
-    let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas/insert";
 
-    return this.http
-    .post(url, datos)
+
+  public insert(datos)  {
+    let url = "http://localhost/slim/apirest/personas/insert";
+
+    return this.http.post(url, datos)
     .toPromise()
-    .then()
-    .catch()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
   }
 
 
   public login(datos)  {
-    let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas/login";
-
+    let url = "http://localhost/slim/apirest/login/signin";
     return this.http
-    .get(url, datos)
+    .post(url, datos)
     .toPromise()
-    .then()
-    .catch()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
   }
 
 
   public delete(datos)  {
-    let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas/delete";
+    let url = "http://localhost/slim/apirest/personas/delete";
 
-    return this.http
-    .post(url, datos)
+    return this.http.post(url, datos)
     .toPromise()
-    .then()
-    .catch()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
   }
 
   
     public select()  {
-      let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas";
+      let url = "http://localhost/slim/apirest/personas/";
   
       return this.http
       .get(url)
       .toPromise()
-      .then()
-      .catch()
+      .then(this.extraerDatos)
+      .catch(this.handlerError)
     }
 
 

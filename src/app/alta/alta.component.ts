@@ -13,6 +13,7 @@ export class AltaComponent{
     password:"",
     mail:"@X.com",
     sexo:"",
+    foto:"",
   }
   
   constructor(private datos:PersonaService ) { }
@@ -21,8 +22,10 @@ export class AltaComponent{
   {
     console.log("Metodo alta() - ");
     this.datos.insert(this.form)
-    .then(data=>{
+    .then(data=>{      
+      
       console.log(data);
+      
     })
     .catch(error=> console.log(error))
   }

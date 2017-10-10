@@ -7,17 +7,17 @@
 
       <thead>
         <tr>
-          <th>name</th>
-          <th>age</th>
-          <th>nombre</th>      
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Genero</th>      
         </tr>
       </thead>    
         
       
       <tr *ngFor="let per of ListaDePersonas" >
-        <th>{{per.name}}</th>
-        <th>{{per.age}}</th>
-        <th>{{per.nombre}}</th>
+        <td>{{per.nombre}}</td>
+        <td>{{per.mail}}</td>
+        <td>{{per.sexo}}</td>
       </tr>
 
 </table>
