@@ -14,6 +14,7 @@ export class BajaComponent implements OnInit {
     password:"",
     mail:"",
     sexo:"",
+    foto:"",
   }
 
   constructor(private datos:PersonaService) { }

@@ -1,9 +1,11 @@
-<p>
-  baja works!
-</p>
-
 <div class="container">
   <form class = "alert alert-danger">  
+
+  <div align="center">
+    <input type="text" class="form-control" placeholder="Ingrese ID a eliminar" name="id" [(ngModel)]="form.id" >
+    <button type="submit" align="center" class="btn btn-danger">Buscar</button>
+  </div>
+
   <div class="form-group">
       <label><b>Nombre de cuenta</b></label>
       <input type="text" class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nombre" >
@@ -24,15 +26,9 @@
 
   <div class="form-group">
     <label><b>Foto de avatar</b></label>
-    <input type="File" class="form-control" placeholder="Esto debe ser por medio de checkbox" name="foto" [(ngModel)]="form.foto" >
   </div>
-  
 
-  <div align="center">
-    <input type="text" class="form-danger" placeholder="_Enter id" name="id" [(ngModel)]="form.id" >
-    <button align="center" class="btn btn-danger" type="submit" (click)="baja()" >Eliminar</button>
-  </div>
-  
+  <button align="center" class="btn btn-danger" type="submit" (click)="baja()" >Eliminar</button>
 
   </form>
   </div>

@@ -13,14 +13,75 @@ export class PersonaService {
 
 
 
-  public insert(datos)  {
-    let url = "http://localhost/slim/apirest/personas/insert";
+  public select()  {
+    let url = "http://localhost/slim/apirest/personas/";
 
-    return this.http.post(url, datos)
+    return this.http
+    .get(url)
     .toPromise()
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }
+
+
+  public selectPersona(persona)  {
+    let url = "http://localhost/slim/apirest/personas/"+ persona.id;
+
+    return this.http
+    .get(url)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
+
+
+  public insert(datos)  {
+    let url = "http://localhost/slim/apirest/personas/insert";
+
+    return this.http
+    .post(url, datos)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
+
+
+
+  public delete(datos)  {
+    let url = "http://localhost/slim/apirest/personas/delete";
+
+    return this.http
+    .post(url, datos)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
+
+
+
+  public update(datos)  {
+    let url = "http://localhost/slim/apirest/personas/update";            //-
+
+    return this.http
+    .post(url, datos)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }  
+
+
+
+  public subirFoto(foto)  {
+    let url = "http://localhost/slim/apirest/personas/subirFoto";            //-
+
+    return this.http
+    .post(url, foto)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }  
+
+
 
 
   public login(datos)  {
@@ -31,29 +92,6 @@ export class PersonaService {
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }
-
-
-  public delete(datos)  {
-    let url = "http://localhost/slim/apirest/personas/delete";
-
-    return this.http.post(url, datos)
-    .toPromise()
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
-  }
-
-  
-    public select()  {
-      let url = "http://localhost/slim/apirest/personas/";
-  
-      return this.http
-      .get(url)
-      .toPromise()
-      .then(this.extraerDatos)
-      .catch(this.handlerError)
-    }
-
-
 
 
 

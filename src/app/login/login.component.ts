@@ -10,8 +10,9 @@ import { PersonaService } from "../servicios/persona.service";
 export class LoginComponent implements OnInit {
 
   form={
-  nombre:"",
+  mail:"",
   password:"",
+  
   }
   constructor(private rout:Router, private datos:PersonaService) { }
 
@@ -19,7 +20,6 @@ export class LoginComponent implements OnInit {
   {
     this.datos.login(this.form)
     .then(data=>{
-
         if (data.jwt != null) {
           console.log(data);
           this.rout.navigate(["/menu"]);

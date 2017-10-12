@@ -1,27 +1,83 @@
-<p>
-  lista works!
-</p>
-
 <div class="container">  
-<table class="table table-striped" border="2">
+<table class="table table-striped" border="1">
 
       <thead>
         <tr>
           <th>Nombre</th>
           <th>Correo</th>
-          <th>Genero</th>      
+          <th>Genero</th>
+          <th>foto</th>
+          <th>Acciones</th>
         </tr>
       </thead>    
         
       
-      <tr *ngFor="let per of ListaDePersonas" >
+      <tr *ngFor="let per of ListaDePersonas" (click)="onClickRow(per)" >
         <td>{{per.nombre}}</td>
         <td>{{per.mail}}</td>
         <td>{{per.sexo}}</td>
-      </tr>
+        <th><img src="" width="40" height="40"></th>
+        <td>          
+            <button align="center" class="btn btn-danger" type="submit" (click)="baja(per)">Borrar</button>
+        </td>
 
+      </tr>
 </table>
 
-</div>    
 
+
+  <app-mostrar-persona [detalles]="PersonaParaMostrar"></app-mostrar-persona>
+
+
+
+    <div align="center" class="alert alert-primary">
+      <input type="checkbox" class="form-check-input" href="#alta_edit" [(ngModel)]="CboxEditar">Editar
+    </div>
+    <br>
+</div>
+
+<div class="container" *ngIf="CboxEditar">
+    <form class = "alert alert-primary">
+    
+    <div class="form-group">
+        <label><b>Nombre de cuenta</b></label>
+        <input type="text" class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nombre" >
+    </div>
+    
+  
+    <div class="form-group">
+        <label><b>Contraseña</b></label>
+        <input type="password" class="form-control" placeholder="Enter Password" name="pass" [(ngModel)]="form.password" >
+    </div>
+  
+  
+    <div class="form-group">
+      <label><b>E-Mail</b></label>
+      <input type="email" class="form-control" placeholder="Enter mail" name="mail" [(ngModel)]="form.mail" >
+    </div>
+  
+  
+    <div class="form-group">
+        <input type="radio" name="sexo" [(ngModel)]="form.sexo" value="Masculino">Masculino
+        <input type="radio" name="sexo" [(ngModel)]="form.sexo" value="Femenino">Femenino
+    </div>
+  
+  
+    <div class="form-group">
+      <label><b>Foto de avatar</b></label>
+      <input type="File" class="form-control" placeholder="Click para subir una imagen" id="fileFoto" name="foto" ngModel (change)=tomarFoto($event)>
+    </div>
+    
+  
+    <div align="center">
+      <button align="center" class="btn btn-primary" type="submit" (click)="alta()">Guardar</button>
+    </div>
+    
+  
+    </form>
+    </div>
+
+
+
+   <!--  <app-alta *ngIf="CboxEditar" id="alta_edit" ></app-alta>   -->
 
