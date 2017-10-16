@@ -31,6 +31,19 @@ export class BajaComponent implements OnInit {
     .catch(error=> console.log(error))
   }
 
+  buscar()
+  {
+    console.log("Metodo buscar() - ");
+    this.datos.selectPersona(this.form)
+    .then(data=>{
+      
+      this.form = data;
+      console.log(data);
+      
+    })
+    .catch(error=> console.log(error))
+  }
+
   ngOnInit() {
   }
 

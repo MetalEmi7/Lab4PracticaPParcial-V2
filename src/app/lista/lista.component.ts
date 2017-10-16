@@ -92,6 +92,7 @@ export class ListaComponent implements OnInit {
     {
       this.datos.select()
       .then(data=>{
+
         console.log(data);
         this.ListaDePersonas = data;        
       })

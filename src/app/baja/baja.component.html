@@ -3,24 +3,24 @@
 
   <div align="center">
     <input type="text" class="form-control" placeholder="Ingrese ID a eliminar" name="id" [(ngModel)]="form.id" >
-    <button type="submit" align="center" class="btn btn-danger">Buscar</button>
+    <button type="submit" align="center" class="btn btn-danger" (click)="buscar()">Buscar</button>
   </div>
 
   <div class="form-group">
       <label><b>Nombre de cuenta</b></label>
-      <input type="text" class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nombre" >
+      <input type="text" disabled class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nombre" >
   </div>
 
 
   <div class="form-group">
     <label><b>E-Mail</b></label>
-    <input type="email" class="form-control" placeholder="Enter mail" name="mail" [(ngModel)]="form.mail" >
+    <input type="email" disabled class="form-control" placeholder="Enter mail" name="mail" [(ngModel)]="form.mail" >
   </div>
 
 
   <div class="form-group">
-      <input type="radio" name="sexo" [(ngModel)]="form.sexo" value="Masculino">Masculino
-      <input type="radio" name="sexo" [(ngModel)]="form.sexo" value="Femenino">Femenino
+      <input type="radio" disabled name="sexo" [(ngModel)]="form.sexo" value="Masculino">Masculino
+      <input type="radio" disabled name="sexo" [(ngModel)]="form.sexo" value="Femenino">Femenino
   </div>
 
 
