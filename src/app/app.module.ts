@@ -16,9 +16,7 @@ import { ErrorComponent } from './error/error.component';
 import { ListaComponent } from './lista/lista.component';   
 
 import { PersonaService } from "./servicios/persona.service";
-import { HttpService } from "./servicios/http.service";
-import { MostrarPersonaComponent } from './mostrar-persona/mostrar-persona.component';
-//import { ModificarComponent } from './modificar/modificar.component'; //http
+import { HttpService } from "./servicios/http.service"; //http
 
 
 
@@ -28,10 +26,7 @@ const miRoute=[
     children:[
       {path: "alta", component: AltaComponent},
       {path: "baja", component: BajaComponent},
-      {path: "listado", component: ListaComponent,
-        children:[
-          {path: "alta", component: AltaComponent}
-        ]}
+      {path: "listado", component: ListaComponent}
     ]},
   {path: "",component: LoginComponent},
   {path: "**",component: ErrorComponent}
@@ -45,9 +40,7 @@ const miRoute=[
     MainMenuComponent,
     BajaComponent,
     ErrorComponent,
-    ListaComponent,
-    MostrarPersonaComponent,
-   // ModificarComponent
+    ListaComponent
   ],
   imports: [
     BrowserModule,
