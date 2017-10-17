@@ -1,7 +1,3 @@
-<p>
-  alta works!
-</p>
-
 <div class="container">
   <form class = "alert alert-primary">
   
@@ -31,12 +27,12 @@
 
   <div class="form-group">
     <label><b>Foto de avatar</b></label>
-    <input type="File" class="form-control" placeholder="Esto debe ser por medio de checkbox" name="foto" [(ngModel)]="form.foto" >
+    <input type="File" class="form-control" placeholder="Click para subir una imagen" id="fileFoto" name="foto" ngModel (change)=tomarFoto($event)>
   </div>
   
 
   <div align="center">
-    <button align="center" class="btn btn-primary" type="submit" (click)="alta()" >Crear</button>
+    <button align="center" class="btn btn-primary" type="submit" (click)="alta()">Guardar</button>
   </div>
   
 

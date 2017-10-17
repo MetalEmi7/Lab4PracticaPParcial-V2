@@ -10,8 +10,9 @@ import { PersonaService } from "../servicios/persona.service";
 export class LoginComponent implements OnInit {
 
   form={
-  nombre:"",
+  mail:"",
   password:"",
+  
   }
   constructor(private rout:Router, private datos:PersonaService) { }
 
@@ -19,21 +20,20 @@ export class LoginComponent implements OnInit {
   {
     this.datos.login(this.form)
     .then(data=>{
-      console.log("Logueado");
-      this.rout.navigate(["/menu"]);
+        if (data.jwt != null) {
+          console.log(data);
+          this.rout.navigate(["/menu"]);
+        }
+        else
+        {
+          console.log(data);
+        }        
+        
     })
     .catch(error=>{
       console.log(error);
     })
-
-
-    /*
-    //hardcode 
-    if (this.nombre == "admin" && this.password=="123456")
-    {
-        this.rout.navigate(["/menu"]);
-    }
-    */
+    
   }
 
   ngOnInit() {

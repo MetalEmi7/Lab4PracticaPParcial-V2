@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Response, Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-
+import { Response, Http, ResponseOptions} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -11,50 +11,87 @@ import 'rxjs/add/operator/catch';
 export class PersonaService {
   constructor(public http:Http) { }
 
+
+
+  public select()  {
+    let url = "http://localhost/slim/apirest/personas/";
+
+    return this.http
+    .get(url)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
+
+
+  public selectPersona(persona)  {
+    let url = "http://localhost/slim/apirest/personas/"+ persona.id;
+
+    return this.http
+    .get(url)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
+
+
   public insert(datos)  {
-    let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas/insert";
+    let url = "http://localhost/slim/apirest/personas/insert";
 
     return this.http
     .post(url, datos)
     .toPromise()
-    .then()
-    .catch()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
   }
 
-
-  public login(datos)  {
-    let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas/login";
-
-    return this.http
-    .get(url, datos)
-    .toPromise()
-    .then()
-    .catch()
-  }
 
 
   public delete(datos)  {
-    let url = "http://localhost/Lab4PracticaPParcial/slim/index.php/personas/delete";
+    let url = "http://localhost/slim/apirest/personas/delete";
 
     return this.http
     .post(url, datos)
     .toPromise()
-    .then()
-    .catch()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
   }
 
-  
-    public select()  {
-      let url = "http://localhost/Lab4PracticaPParcial-master/slim/personas";
-  
-      return this.http
-      .get(url)
-      .toPromise()
-      .then()
-      .catch()
-    }
 
 
+  public update(datos)  {
+    let url = "http://localhost/slim/apirest/personas/update";            //-
+
+    return this.http
+    .post(url, datos)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }  
+
+
+
+  public subirFoto(foto)  {
+    let url = "http://localhost/slim/apirest/personas/subirFoto";            //-
+
+    return this.http
+    .post(url, foto)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }  
+
+
+
+
+  public login(datos)  {
+    let url = "http://localhost:4200/slim/apirest/login/signin";
+    return this.http
+    .post(url, datos)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
 
 
 
