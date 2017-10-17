@@ -85,7 +85,7 @@ export class PersonaService {
 
 
   public login(datos)  {
-    let url = "http://localhost:4200/slim/apirest/login/signin";
+    let url = "http://localhost/slim/apirest/login/signin";
     return this.http
     .post(url, datos)
     .toPromise()
