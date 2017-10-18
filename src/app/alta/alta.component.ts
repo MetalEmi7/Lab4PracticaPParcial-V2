@@ -39,10 +39,13 @@ export class AltaComponent{
   {
     this.form.foto = archivo.target.files[0].name;
 
-    this.datos.subirFoto(archivo.target.files[0])
+    this.datos.subirFoto(archivo.target)
     .then(data=>{      
 
-        console.log(data);
+        console.log(archivo.target.files[0].name);
+        console.log(archivo.target.files[0]);
+        console.log(archivo.target);
+        console.log(archivo);
 
       if (data == null) {
         alert("ALERTA");
