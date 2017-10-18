@@ -8,6 +8,8 @@ import { PersonaService } from "../servicios/persona.service";
 })
 export class BajaComponent implements OnInit {
 
+  mostrar_btn_submit:boolean=false;
+
   form={
     id:"",
     nombre:"",
@@ -17,7 +19,8 @@ export class BajaComponent implements OnInit {
     foto:"",
   }
 
-  constructor(private datos:PersonaService) { }
+  constructor(private datos:PersonaService)
+  { }
 
   baja()
   {
@@ -25,6 +28,21 @@ export class BajaComponent implements OnInit {
     this.datos.delete(this.form)
     .then(data=>{
       
+      this.mostrar_btn_submit = false;
+      console.log(data);
+      
+    })
+    .catch(error=> console.log(error))
+  }
+
+  buscar()
+  {
+    console.log("Metodo buscar() - ");
+    this.datos.selectPersona(this.form)
+    .then(data=>{
+      
+      this.form = data;
+      this.mostrar_btn_submit = true;
       console.log(data);
       
     })
