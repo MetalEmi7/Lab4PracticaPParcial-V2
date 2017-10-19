@@ -7,7 +7,6 @@ import { PersonaService } from "../servicios/persona.service";
   styleUrls: ['./baja.component.css']
 })
 export class BajaComponent implements OnInit {
-
   mostrar_btn_submit:boolean=false;
 
   form={
@@ -16,11 +15,13 @@ export class BajaComponent implements OnInit {
     password:"",
     mail:"",
     sexo:"",
-    foto:"",
+    foto:"Default.jpg",
   }
 
   constructor(private datos:PersonaService)
   { }
+
+
 
   baja()
   {
@@ -35,21 +36,31 @@ export class BajaComponent implements OnInit {
     .catch(error=> console.log(error))
   }
 
+
+
   buscar()
   {
     console.log("Metodo buscar() - ");
     this.datos.selectPersona(this.form)
     .then(data=>{
-      
-      this.form = data;
-      this.mostrar_btn_submit = true;
-      console.log(data);
+
+      if(data["status"] == 404)
+      {
+        alert("No se ha encontrado");
+      } 
+      else
+      {
+        this.mostrar_btn_submit = true;
+        this.form = data;      
+        console.log(data);
+      }
       
     })
     .catch(error=> console.log(error))
-  }
+  }  
 
-  ngOnInit() {
-  }
+
+
+  ngOnInit() {}
 
 }

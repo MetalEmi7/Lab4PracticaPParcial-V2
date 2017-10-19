@@ -6,6 +6,15 @@
     <button type="submit" align="center" class="btn btn-danger" (click)="buscar()">Buscar</button>
   </div>
 
+  <hr>
+
+  <div *ngIf="mostrar_btn_submit">
+  <div class="form-group">
+    <label><b>Foto de avatar</b></label>
+    <br>
+    <img class="border border-danger" src="http://localhost/slim/apirest/imagenes/{{form.foto}}" width="100" height="100">
+  </div>
+
   <div class="form-group">
       <label><b>Nombre de cuenta</b></label>
       <input type="text" disabled class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nombre" >
@@ -22,14 +31,9 @@
       <input type="radio" disabled name="sexo" [(ngModel)]="form.sexo" value="Masculino">Masculino
       <input type="radio" disabled name="sexo" [(ngModel)]="form.sexo" value="Femenino">Femenino
   </div>
-
-
-  <div class="form-group">
-    <label><b>Foto de avatar</b></label>
+  
+  <button  align="center" class="btn btn-danger" type="submit" (click)="baja()" >Eliminar</button>
   </div>
-
-  <button *ngIf="mostrar_btn_submit" align="center" class="btn btn-danger" type="submit" (click)="baja()" >Eliminar</button>
-  <button *ngIf="mostrar_btn_submit" disabled align="center" class="btn btn-danger" type="submit"  >Modificar</button>
-
+  
   </form>
   </div>

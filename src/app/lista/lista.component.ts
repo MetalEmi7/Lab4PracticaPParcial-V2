@@ -8,10 +8,12 @@ import { persona } from "../clases/persona";
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
-export class ListaComponent implements OnInit {  
+export class ListaComponent implements OnInit {
+  @Output()  
   PersonaParaMostrar:persona = new persona();
-
+  
   ListaDePersonas:Array<any>;
+  //directorio_fotos="http://localhost/slim/apirest/imagenes/";
 
   form={
     id:"",
@@ -30,16 +32,18 @@ export class ListaComponent implements OnInit {
 
 
 
+
     baja(persona)
     {
-      //En slim se extrae la id de la persona para gestionar si baja
       this.datos.delete(persona)
-      .then(data=>{        
-        console.log(data);        
+      .then(data=>{
+
         this.listar();
+
       })
       .catch(error=> console.log(error))
     }
+
 
 
 
@@ -47,30 +51,24 @@ export class ListaComponent implements OnInit {
     alta()
     {
       this.datos.insert(this.form)
-      .then(data=>{    
-        console.log(data);
-        this.listar();            
+      .then(data=>{
+
+        this.listar(); 
+
       })
       .catch(error=> console.log(error))
     }
 
 
 
+
+
     tomarFoto(archivo)
     {
       this.form.foto = archivo.target.files[0].name;
-
-      this.datos.subirFoto(archivo.target.files[0])      
-      .then(data=>{
-        console.log(data);
-        /*
-        if (data != null) {
-          console.log(archivo.target.files[0].name);        
-        }
-        */        
-      })
-      .catch(error=> console.log(error))      
     }
+
+
 
 
 
@@ -92,11 +90,19 @@ export class ListaComponent implements OnInit {
     {
       this.datos.select()
       .then(data=>{
-        console.log(data);
-        this.ListaDePersonas = data;        
+
+        this.ListaDePersonas = data;   
+
       })
       .catch(error=> console.log(error))
     }
+
+
+
+
+
+
+
 
 
   ngOnInit() {

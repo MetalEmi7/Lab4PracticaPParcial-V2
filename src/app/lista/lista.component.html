@@ -1,5 +1,5 @@
 <div class="container">  
-<table class="table table-striped" border="1">
+<table class="table" border="1">
 
       <thead>
         <tr>
@@ -9,14 +9,13 @@
           <th>foto</th>
           <th>Acciones</th>
         </tr>
-      </thead>    
-        
+      </thead>   
       
-      <tr *ngFor="let per of ListaDePersonas" (click)="onClickRow(per)" >
+      <tr *ngFor="let per of ListaDePersonas" [ngClass]="per.sexo" (click)="onClickRow(per)" >
         <td>{{per.nombre}}</td>
         <td>{{per.mail}}</td>
         <td>{{per.sexo}}</td>
-        <th><img src="" width="40" height="40"></th>
+        <th><img src="http://localhost/slim/apirest/imagenes/{{per.foto}}" width="40" height="40"></th>
         <td>          
             <button align="center" class="btn btn-danger" type="submit" (click)="baja(per)">Borrar</button>
         </td>
@@ -24,17 +23,18 @@
       </tr>
 </table>
 
-
-
-  <app-mostrar-persona [detalles]="PersonaParaMostrar"></app-mostrar-persona>
-
+  
+    <app-mostrar-persona [detalles]="PersonaParaMostrar" align="center"></app-mostrar-persona><br>
 
 
     <div align="center" class="alert alert-primary">
-      <input type="checkbox" class="form-check-input" href="#alta_edit" [(ngModel)]="CboxEditar">Editar
-    </div>
-    <br>
+      <input type="checkbox" class="form-check-input" [(ngModel)]="CboxEditar">Editar
+    </div><br>
+
+
 </div>
+
+
 
 <div class="container" *ngIf="CboxEditar">
     <form class = "alert alert-primary">
@@ -65,7 +65,7 @@
   
     <div class="form-group">
       <label><b>Foto de avatar</b></label>
-      <input type="File" class="form-control" placeholder="Click para subir una imagen" id="fileFoto" name="foto" ngModel (change)=tomarFoto($event)>
+      <input type="File" class="form-control" placeholder="Click para subir una imagen" id="foto" name="foto" ngModel (change)=tomarFoto($event)>
     </div>
     
   
@@ -75,9 +75,5 @@
     
   
     </form>
-    </div>
-
-
-
-   <!--  <app-alta *ngIf="CboxEditar" id="alta_edit" ></app-alta>   -->
+  </div>
 

@@ -11,11 +11,7 @@ export class MostrarPersonaComponent implements OnInit {
 detalles:persona;
 
   constructor()
-  {
-    this.detalles = new persona();
-  }
-
-
+  {this.detalles = new persona();}
 
 
 

@@ -59,18 +59,6 @@ export class PersonaService {
 
 
 
-  public update(datos)  {
-    let url = "http://localhost/slim/apirest/personas/update";            //-
-
-    return this.http
-    .post(url, datos)
-    .toPromise()
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
-  }  
-
-
-
   public subirFoto(foto)  {
     let url = "http://localhost/slim/apirest/personas/subirFoto";            //-
 

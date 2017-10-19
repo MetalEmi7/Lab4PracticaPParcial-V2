@@ -13,7 +13,7 @@ export class AltaComponent{
     password:"",
     mail:"",
     sexo:"",
-    foto:""
+    foto:"Default.jpg"
   }
   
   constructor(private datos:PersonaService ) { }
