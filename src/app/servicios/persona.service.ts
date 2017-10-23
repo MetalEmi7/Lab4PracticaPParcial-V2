@@ -7,40 +7,40 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { HttpService } from "../servicios/http.service";
+
 @Injectable()
 export class PersonaService {
-  constructor(public http:Http) { }
+
+  //Para encapsulamiento
+  //miHttp:HttpService;
+
+  constructor(public miHttp:HttpService)
+  {
+    
+  }
 
 
 
   public select()  {
-    let url = "http://localhost/slim/apirest/personas/";
-
-    return this.http
-    .get(url)
-    .toPromise()
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
+        
+    return this.miHttp.realSelect()
+    .then(data=>data)
+    .catch(error=>error)
   }
 
 
-  public selectPersona(persona)  {
-    let url = "http://localhost/slim/apirest/personas/"+ persona.id;
+  public selectPersona(persona)  {    
 
-    return this.http
-    .get(url)
-    .toPromise()
+    return this.miHttp.realSelectPersona(persona)
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }
 
 
   public insert(datos)  {
-    let url = "http://localhost/slim/apirest/personas/insert";
 
-    return this.http
-    .post(url, datos)
-    .toPromise()
+    return this.miHttp.realInsert(datos)
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }
@@ -48,39 +48,28 @@ export class PersonaService {
 
 
   public delete(datos)  {
-    let url = "http://localhost/slim/apirest/personas/delete";
 
-    return this.http
-    .post(url, datos)
-    .toPromise()
+    return this.miHttp.realDelete(datos)
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }
 
 
 
-  public subirFoto(foto)  {
-    let url = "http://localhost/slim/apirest/personas/subirFoto";            //-
+  public subirFoto(foto)  {           //-
 
-    return this.http
-    .post(url, foto)
-    .toPromise()
+    return this.miHttp.realSubirFoto(foto)
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }  
 
 
 
-
   public login(datos)  {
-    let url = "http://localhost/slim/apirest/login/signin";
-    return this.http
-    .post(url, datos)
-    .toPromise()
+    return this.miHttp.realLogin(datos)
     .then(this.extraerDatos)
     .catch(this.handlerError)
   }
-
 
 
   

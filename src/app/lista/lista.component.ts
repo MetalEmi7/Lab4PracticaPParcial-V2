@@ -30,9 +30,6 @@ export class ListaComponent implements OnInit {
     this.listar();
   }
 
-
-
-
     baja(persona)
     {
       this.datos.delete(persona)
@@ -81,8 +78,6 @@ export class ListaComponent implements OnInit {
       })
       .catch(error=> console.log(error))
     }
-
-
 
 
 
