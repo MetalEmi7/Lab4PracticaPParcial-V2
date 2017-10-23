@@ -12,9 +12,6 @@ import { HttpService } from "../servicios/http.service";
 @Injectable()
 export class PersonaService {
 
-  //Para encapsulamiento
-  //miHttp:HttpService;
-
   constructor(public miHttp:HttpService)
   {
     
@@ -66,15 +63,21 @@ export class PersonaService {
 
 
   public login(datos)  {
-    return this.miHttp.realLogin(datos)
+    console.log("Estoy en PersonaService");
+    
+    return this.miHttp.realLogin(datos)    
+    /*
     .then(this.extraerDatos)
     .catch(this.handlerError)
+    */
+    .then(data=>data)
+    .catch(error=>error)
   }
 
 
   
   private extraerDatos(resp:Response) {
-    return resp.json() || {}
+    return resp.json();
   }
 
   private handlerError(error:Response | any) {

@@ -20,9 +20,13 @@ export class LoginComponent implements OnInit {
   {
     this.datos.login(this.form)
     .then(data=>{
+      
         if (data.jwt != null) {
-          console.log(data);
+          console.log("Estoy en Login "+ data);
+        
           this.rout.navigate(["/menu"]);
+          console.log(data);
+        
         }
         else
         {

@@ -71,6 +71,8 @@ export class HttpService {
 
   public realLogin(datos)  {
     let url = "http://localhost/slim/apirest/login/signin";
+
+    console.log("Estoy en HttpService");
     
     return this.http.post(url, datos)
     .toPromise()
