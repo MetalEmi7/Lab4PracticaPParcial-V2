@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PersonaService } from "../servicios/persona.service";
-
+import { HttpService } from "../servicios/http.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,11 +14,11 @@ export class LoginComponent implements OnInit {
   password:"",
   
   }
-  constructor(private rout:Router, private datos:PersonaService) { }
+  constructor(private rout:Router, private datos:PersonaService, private Http:HttpService) { }
 
   Loguearse()
   {
-    this.datos.login(this.form)
+    this.Http.realLogin(this.form)
     .then(data=>{
       
         if (data.jwt != null) {
@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
         {
           console.log(data);
         }        
+
+        console.log(data);
         
     })
     .catch(error=>{

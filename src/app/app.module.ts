@@ -18,6 +18,7 @@ import { ListaComponent } from './lista/lista.component';
 import { PersonaService } from "./servicios/persona.service";
 import { HttpService } from "./servicios/http.service";
 import { MostrarPersonaComponent } from './mostrar-persona/mostrar-persona.component';
+import { ModificarComponent } from './modificar/modificar.component';
 //import { ModificarComponent } from './modificar/modificar.component'; //http
 
 
@@ -47,6 +48,7 @@ const miRoute=[
     ErrorComponent,
     ListaComponent,
     MostrarPersonaComponent,
+    ModificarComponent,
    // ModificarComponent
   ],
   imports: [

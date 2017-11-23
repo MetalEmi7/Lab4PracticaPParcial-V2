@@ -21,8 +21,10 @@ export class HttpService {
     .catch(this.handlerError)
   }
 
+
+  
   public realSelectPersona(persona)  {
-    let url = "http://localhost/slim/apirest/personas/"+ persona.id;
+    let url = "http://localhost/slim/apirest/personas/" + persona.id;
 
     return this.http
     .get(url)
@@ -33,7 +35,8 @@ export class HttpService {
 
 
   public realInsert(datos)  {
-    let url = "http://localhost/slim/apirest/personas/insert";
+    console.log(datos);
+    let url = "http://localhost:80/slim/apirest/personas/insert";
 
     return this.http
     .post(url, datos)
@@ -71,8 +74,6 @@ export class HttpService {
 
   public realLogin(datos)  {
     let url = "http://localhost/slim/apirest/login/signin";
-
-    console.log("Estoy en HttpService");
     
     return this.http.post(url, datos)
     .toPromise()

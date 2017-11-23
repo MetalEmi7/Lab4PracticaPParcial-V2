@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { PersonaService } from "../servicios/persona.service";
 
 import { persona } from "../clases/persona";
+import { HttpService } from '../servicios/http.service';
 
 @Component({
   selector: 'app-lista',
@@ -10,10 +11,8 @@ import { persona } from "../clases/persona";
 })
 export class ListaComponent implements OnInit {
   @Output()  
-  PersonaParaMostrar:persona = new persona();
-  
+  PersonaParaMostrar:persona = new persona();  
   ListaDePersonas:Array<any>;
-  //directorio_fotos="http://localhost/slim/apirest/imagenes/";
 
   form={
     id:"",
@@ -24,7 +23,7 @@ export class ListaComponent implements OnInit {
     foto:"",
   }
 
-  constructor(private datos:PersonaService)
+  constructor(private datos:PersonaService, private http:HttpService)
   {
     this.ListaDePersonas = new Array<any>();
     this.listar();
@@ -47,7 +46,7 @@ export class ListaComponent implements OnInit {
 
     alta()
     {
-      this.datos.insert(this.form)
+      this.http.realInsert(this.form)
       .then(data=>{
 
         this.listar(); 
@@ -86,7 +85,8 @@ export class ListaComponent implements OnInit {
       this.datos.select()
       .then(data=>{
 
-        this.ListaDePersonas = data;   
+        this.ListaDePersonas = data;
+        console.log (this.ListaDePersonas);   
 
       })
       .catch(error=> console.log(error))

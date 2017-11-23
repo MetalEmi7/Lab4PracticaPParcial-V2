@@ -13,63 +13,49 @@ import { HttpService } from "../servicios/http.service";
 export class PersonaService {
 
   constructor(public miHttp:HttpService)
-  {
-    
-  }
-
+  {}
 
 
   public select()  {
-        
     return this.miHttp.realSelect()
     .then(data=>data)
     .catch(error=>error)
   }
 
 
-  public selectPersona(persona)  {    
-
+  public selectPersona(persona)  {   
     return this.miHttp.realSelectPersona(persona)
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
+    .then(data=>data)
+    .catch(error=>error)
   }
 
 
   public insert(datos)  {
-
     return this.miHttp.realInsert(datos)
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
+    .then(data=>data)
+    .catch(error=>error)
   }
 
 
 
   public delete(datos)  {
-
     return this.miHttp.realDelete(datos)
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
+    .then(data=>data)
+    .catch(error=>error)
   }
 
 
 
   public subirFoto(foto)  {           //-
-
     return this.miHttp.realSubirFoto(foto)
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
+    .then(data=>data)
+    .catch(error=>error)
   }  
 
 
 
   public login(datos)  {
-    console.log("Estoy en PersonaService");
-    
-    return this.miHttp.realLogin(datos)    
-    /*
-    .then(this.extraerDatos)
-    .catch(this.handlerError)
-    */
+    return this.miHttp.realLogin(datos) 
     .then(data=>data)
     .catch(error=>error)
   }

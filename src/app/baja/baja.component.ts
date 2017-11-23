@@ -44,6 +44,9 @@ export class BajaComponent implements OnInit {
     this.datos.selectPersona(this.form)
     .then(data=>{
 
+      console.log(this.form);
+      console.log(data);
+
       if(data["status"] == 404)
       {
         alert("No se ha encontrado");
