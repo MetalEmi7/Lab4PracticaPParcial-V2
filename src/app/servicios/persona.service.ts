@@ -46,6 +46,14 @@ export class PersonaService {
 
 
 
+  public deletePersona(dato_id)  {
+    return this.miHttp.realDeletePersona(dato_id)
+    .then(data=>data)
+    .catch(error=>error)
+  }
+
+
+
   public subirFoto(foto)  {           //-
     return this.miHttp.realSubirFoto(foto)
     .then(data=>data)

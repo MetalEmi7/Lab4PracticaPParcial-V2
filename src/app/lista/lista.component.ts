@@ -12,6 +12,8 @@ import { HttpService } from '../servicios/http.service';
 export class ListaComponent implements OnInit {
   @Output()  
   PersonaParaMostrar:persona = new persona();  
+  
+  @Input()
   ListaDePersonas:Array<any>;
 
   form={
@@ -41,7 +43,8 @@ export class ListaComponent implements OnInit {
     }
 
 
-
+pete()
+{}  
 
 
     alta()
@@ -67,6 +70,8 @@ export class ListaComponent implements OnInit {
 
 
 
+    listar2()
+    {alert();}
 
     onClickRow(persona)
     {

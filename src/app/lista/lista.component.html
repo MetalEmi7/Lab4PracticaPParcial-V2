@@ -16,8 +16,9 @@
         <td>{{per.mail}}</td>
         <td>{{per.sexo}}</td>
         <th><img src="http://localhost/slim/apirest/imagenes/{{per.foto}}" width="40" height="40"></th>
+
         <td>          
-            <button align="center" class="btn btn-danger" type="submit" (click)="baja(per)">Borrar</button>
+            <app-borrar-persona (stdEvent)="listar()" [idParaBorrar] = "per.id"></app-borrar-persona>           
         </td>
 
       </tr>

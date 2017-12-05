@@ -58,6 +58,17 @@ export class HttpService {
   }
 
 
+  public realDeletePersona(dato_id)  {
+    let url = "http://localhost/slim/apirest/personas/delete/" + dato_id;
+
+    return this.http
+    .post(url, dato_id)
+    .toPromise()
+    .then(this.extraerDatos)
+    .catch(this.handlerError)
+  }
+
+
 
   public realSubirFoto(foto)  {
     let url = "http://localhost/slim/apirest/personas/subirFoto";            //-
