@@ -11,8 +11,10 @@ import { HttpService } from '../servicios/http.service';
 })
 export class ListaComponent implements OnInit {
   @Output()  
-  PersonaParaMostrar:persona = new persona();  
+  PersonaParaMostrar:persona = new persona();  //Para componente mostrarPersona
   
+  
+
   @Input()
   ListaDePersonas:Array<any>;
 
