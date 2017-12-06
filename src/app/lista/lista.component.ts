@@ -70,9 +70,6 @@ pete()
 
 
 
-    listar2()
-    {alert();}
-
     onClickRow(persona)
     {
       this.datos.selectPersona(persona)

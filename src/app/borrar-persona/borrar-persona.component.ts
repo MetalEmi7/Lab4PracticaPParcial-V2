@@ -38,10 +38,6 @@ export class BorrarPersonaComponent implements OnInit {
 
 
 
-  listar2()
-  {alert();}
-
-
 
 
   ngOnInit() {
