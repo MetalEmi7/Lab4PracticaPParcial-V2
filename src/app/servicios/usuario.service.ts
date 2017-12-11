@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 import { HttpService } from "../servicios/http.service";
 
 @Injectable()
-export class PersonaService {
+export class UsuarioService {
 
   constructor(public miHttp:HttpService)
   {}
@@ -23,8 +23,8 @@ export class PersonaService {
   }
 
 
-  public selectPersona(persona)  {   
-    return this.miHttp.realSelectPersona(persona)
+  public selectUsuario(usuario)  {   
+    return this.miHttp.realSelectUsuario(usuario)
     .then(data=>data)
     .catch(error=>error)
   }
@@ -46,8 +46,8 @@ export class PersonaService {
 
 
 
-  public deletePersona(dato_id)  {
-    return this.miHttp.realDeletePersona(dato_id)
+  public deleteUsuario(dato_id)  {
+    return this.miHttp.realDeleteUsuario(dato_id)
     .then(data=>data)
     .catch(error=>error)
   }
@@ -76,5 +76,5 @@ export class PersonaService {
 
   private handlerError(error:Response | any) {
     return error;
-  }
+}
 }

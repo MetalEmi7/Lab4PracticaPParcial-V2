@@ -15,11 +15,11 @@ import { BajaComponent } from './baja/baja.component';
 import { ErrorComponent } from './error/error.component';
 import { ListaComponent } from './lista/lista.component';   
 
-import { PersonaService } from "./servicios/persona.service";
+import { UsuarioService } from "./servicios/usuario.service";
 import { HttpService } from "./servicios/http.service";
-import { MostrarPersonaComponent } from './mostrar-persona/mostrar-persona.component';
+import { MostrarUsuarioComponent } from './mostrar-usuario/mostrar-usuario.component';
 import { ModificarComponent } from './modificar/modificar.component';
-import { BorrarPersonaComponent } from './borrar-persona/borrar-persona.component';
+import { BorrarUsuarioComponent } from './borrar-usuario/borrar-usuario.component';
 //import { ModificarComponent } from './modificar/modificar.component'; //http
 
 
@@ -48,9 +48,9 @@ const miRoute=[
     BajaComponent,
     ErrorComponent,
     ListaComponent,
-    MostrarPersonaComponent,
+    MostrarUsuarioComponent,
     ModificarComponent,
-    BorrarPersonaComponent,
+    BorrarUsuarioComponent,
    // ModificarComponent
   ],
   imports: [
@@ -60,7 +60,7 @@ const miRoute=[
     HttpModule                            //HTTP
   ],
   providers: [
-    PersonaService,
+    UsuarioService,
     HttpService                           //HTTP
   ],
   bootstrap: [AppComponent]

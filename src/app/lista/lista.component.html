@@ -3,7 +3,7 @@
 
       <thead>
         <tr>
-          <th>Nombre</th>
+          <th>NomUsuario</th>
           <th>Correo</th>
           <th>Genero</th>
           <th>foto</th>
@@ -11,14 +11,14 @@
         </tr>
       </thead>   
       
-      <tr *ngFor="let per of ListaDePersonas" [ngClass]="per.sexo" (click)="onClickRow(per)" >
-        <td>{{per.nombre}}</td>
-        <td>{{per.mail}}</td>
+      <tr *ngFor="let per of ListaDeUsuarios" [ngClass]="per.sexo" (click)="onClickRow(per)" >
+        <td>{{per.nomUsuario}}</td>
+        <td>{{per.email}}</td>
         <td>{{per.sexo}}</td>
         <th><img src="http://localhost/slim/apirest/imagenes/{{per.foto}}" width="40" height="40"></th>
 
         <td>          
-            <app-borrar-persona (stdEvent)="listar()" [idParaBorrar] = "per.id"></app-borrar-persona>           
+            <app-borrar-usuario (stdEvent)="listar()" [idParaBorrar] = "per.id"></app-borrar-usuario>           
         </td>
 
       </tr>
@@ -39,7 +39,7 @@
 
 
 
-    <app-mostrar-persona [detalles]="PersonaParaMostrar" align="center"></app-mostrar-persona><br>
+    <app-mostrar-usuario [detalles]="UsuarioParaMostrar" align="center"></app-mostrar-usuario><br>
 
 
     <div align="center" class="alert alert-primary">
@@ -55,8 +55,8 @@
     <form class = "alert alert-primary">
     
     <div class="form-group">
-        <label><b>Nombre de cuenta</b></label>
-        <input type="text" class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nombre" >
+        <label><b>NomUsuario de cuenta</b></label>
+        <input type="text" class="form-control" placeholder="Enter Username" name="user" [(ngModel)]="form.nomUsuario" >
     </div>
     
   
@@ -67,8 +67,8 @@
   
   
     <div class="form-group">
-      <label><b>E-Mail</b></label>
-      <input type="email" class="form-control" placeholder="Enter mail" name="mail" [(ngModel)]="form.mail" >
+      <label><b>E-email</b></label>
+      <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="form.email" >
     </div>
   
   

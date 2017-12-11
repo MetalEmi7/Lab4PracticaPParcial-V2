@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { PersonaService } from "../servicios/persona.service";
+import { UsuarioService } from "../servicios/usuario.service";
 import { HttpService } from "../servicios/http.service";
 @Component({
   selector: 'app-login',
@@ -10,11 +10,11 @@ import { HttpService } from "../servicios/http.service";
 export class LoginComponent implements OnInit {
 
   form={
-  mail:"",
+  email:"",
   password:"",
   
   }
-  constructor(private rout:Router, private datos:PersonaService, private Http:HttpService) { }
+  constructor(private rout:Router, private datos:UsuarioService, private Http:HttpService) { }
 
   Loguearse()
   {

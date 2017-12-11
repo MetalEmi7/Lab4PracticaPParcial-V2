@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaService } from "../servicios/persona.service";
+import { UsuarioService } from "../servicios/usuario.service";
 
 @Component({
   selector: 'app-alta',
@@ -9,14 +9,14 @@ import { PersonaService } from "../servicios/persona.service";
 export class AltaComponent{
 
   form={
-    nombre:"",
+    nomUsuario:"",
     password:"",
-    mail:"",
+    email:"",
     sexo:"",
     foto:"Default.jpg"
   }
   
-  constructor(private datos:PersonaService ) { }
+  constructor(private datos:UsuarioService ) { }
   CboxEditar:boolean=false;
 
   alta()

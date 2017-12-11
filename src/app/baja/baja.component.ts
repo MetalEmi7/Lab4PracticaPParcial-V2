@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaService } from "../servicios/persona.service";
+import { UsuarioService } from "../servicios/usuario.service";
 
 @Component({
   selector: 'app-baja',
@@ -9,16 +9,18 @@ import { PersonaService } from "../servicios/persona.service";
 export class BajaComponent implements OnInit {
   mostrar_btn_submit:boolean=false;
 
+  Ruta:string="http://localhost/slim/apirest/imagenes/";
+
   form={
     id:"",
-    nombre:"",
+    nomUsuario:"",
     password:"",
-    mail:"",
+    email:"",
     sexo:"",
     foto:"Default.jpg",
   }
 
-  constructor(private datos:PersonaService)
+  constructor(private datos:UsuarioService)
   { }
 
 
@@ -41,7 +43,7 @@ export class BajaComponent implements OnInit {
   buscar()
   {
     console.log("Metodo buscar() - ");
-    this.datos.selectPersona(this.form)
+    this.datos.selectUsuario(this.form)
     .then(data=>{
 
       console.log(this.form);

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { PersonaService } from "../servicios/persona.service";
+import { UsuarioService } from "../servicios/usuario.service";
 
-import { persona } from "../clases/persona";
+import { usuario } from "../clases/usuario";
 import { HttpService } from '../servicios/http.service';
 
 @Component({
@@ -11,31 +11,31 @@ import { HttpService } from '../servicios/http.service';
 })
 export class ListaComponent implements OnInit {
   @Output()  
-  PersonaParaMostrar:persona = new persona();  //Para componente mostrarPersona
+  UsuarioParaMostrar:usuario = new usuario();  //Para componente mostrarUsuario
   
   
 
   @Input()
-  ListaDePersonas:Array<any>;
+  ListaDeUsuarios:Array<any>;
 
   form={
     id:"",
-    nombre:"",
+    nomUsuario:"",
     password:"",
-    mail:"",
+    email:"",
     sexo:"",
-    foto:"",
+    foto:"Default.jpg",
   }
 
-  constructor(private datos:PersonaService, private http:HttpService)
+  constructor(private datos:UsuarioService, private http:HttpService)
   {
-    this.ListaDePersonas = new Array<any>();
+    this.ListaDeUsuarios = new Array<any>();
     this.listar();
   }
 
-    baja(persona)
+    baja(usuario)
     {
-      this.datos.delete(persona)
+      this.datos.delete(usuario)
       .then(data=>{
 
         this.listar();
@@ -45,8 +45,7 @@ export class ListaComponent implements OnInit {
     }
 
 
-pete()
-{}  
+  
 
 
     alta()
@@ -72,12 +71,12 @@ pete()
 
 
 
-    onClickRow(persona)
+    onClickRow(usuario)
     {
-      this.datos.selectPersona(persona)
+      this.datos.selectUsuario(usuario)
       .then(data=>{  
         console.log(data);
-        this.PersonaParaMostrar = data;
+        this.UsuarioParaMostrar = data;
       })
       .catch(error=> console.log(error))
     }
@@ -89,8 +88,8 @@ pete()
       this.datos.select()
       .then(data=>{
 
-        this.ListaDePersonas = data;
-        console.log (this.ListaDePersonas);   
+        this.ListaDeUsuarios = data;
+        console.log (this.ListaDeUsuarios);   
 
       })
       .catch(error=> console.log(error))

@@ -12,7 +12,7 @@ export class HttpService {
   constructor(public http:Http) { }
 
   public realSelect()  {
-    let url = "http://localhost/slim/apirest/personas/";
+    let url = "http://localhost/slim/apirest/usuarios/";
 
     return this.http
     .get(url)
@@ -23,8 +23,8 @@ export class HttpService {
 
 
   
-  public realSelectPersona(persona)  {
-    let url = "http://localhost/slim/apirest/personas/" + persona.id;
+  public realSelectUsuario(usuario)  {
+    let url = "http://localhost/slim/apirest/usuarios/" + usuario.id;
 
     return this.http
     .get(url)
@@ -36,7 +36,7 @@ export class HttpService {
 
   public realInsert(datos)  {
     console.log(datos);
-    let url = "http://localhost:80/slim/apirest/personas/insert";
+    let url = "http://localhost/slim/apirest/usuarios/insert";
 
     return this.http
     .post(url, datos)
@@ -48,7 +48,7 @@ export class HttpService {
 
 
   public realDelete(datos)  {
-    let url = "http://localhost/slim/apirest/personas/delete";
+    let url = "http://localhost/slim/apirest/usuarios/delete";
 
     return this.http
     .post(url, datos)
@@ -58,8 +58,8 @@ export class HttpService {
   }
 
 
-  public realDeletePersona(dato_id)  {
-    let url = "http://localhost/slim/apirest/personas/delete/" + dato_id;
+  public realDeleteUsuario(dato_id)  {
+    let url = "http://localhost/slim/apirest/usuarios/delete/" + dato_id;
 
     return this.http
     .post(url, dato_id)
@@ -71,7 +71,7 @@ export class HttpService {
 
 
   public realSubirFoto(foto)  {
-    let url = "http://localhost/slim/apirest/personas/subirFoto";            //-
+    let url = "http://localhost/slim/apirest/usuarios/subirFoto";            //-
 
     return this.http
     .post(url, foto)
